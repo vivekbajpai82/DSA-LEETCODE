@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int closestTarget(vector<string>& words, string target, int startIndex) {
+        int n=words.size();
+        int x = INT_MAX;
+        for(int i=0;i<n;i++){
+            if(words[i]==target){
+                int diff = abs(i-startIndex);
+                int dist = min(diff,n-diff);
+                x = min(x,dist); 
+            }
+        }
+        if(x==INT_MAX){
+            return -1;
+        } else{
+            return x;
+        }
+
+    }
+};
